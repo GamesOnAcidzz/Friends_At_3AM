@@ -8,8 +8,25 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Control",
+"class": &"Join_Game_Menu",
+"language": &"GDScript",
+"path": "res://UI/join_game_menu.gd"
+}, {
+"base": "Control",
+"class": &"Main_Menu",
+"language": &"GDScript",
+"path": "res://UI/main_menu.gd"
+}]
+_global_script_class_icons={
+"Join_Game_Menu": "",
+"Main_Menu": ""
+}
+
 [application]
 
 config/name="Friends_At_3AM"
+run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"

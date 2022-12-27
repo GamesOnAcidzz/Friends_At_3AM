@@ -1,3 +1,17 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1671844521
+::res://::1672096597
+game.tscn::PackedScene::6452848015018358671::1672096580::0::1::::<><>::uid://ccq35is2jcenx<>uid://ciyqjsdocfv5b
 icon.svg::CompressedTexture2D::4531029126776244030::1671844517::1671844521::1::::<><>::
+README.md::TextFile::-1::1671844757::0::1::::<><>::
+::res://UI/::1672096541
+Griffy-Regular.ttf::FontFile::5384885677311009561::1672093271::1672093280::1::::<><>::
+UI_game_theme.theme::Theme::4948003197573978977::1672096541::0::1::::<><>::uid://ciyqjsdocfv5b<>uid://cjm3ftl271pgx<>uid://dcox5qw8u2w8t
+::res://UI/Buttons/::1672093692
+ui_Button_1.svg::CompressedTexture2D::7329991967449463301::1671666550::1672093692::1::::<><>::
+ui_Button_1_highlight.svg::CompressedTexture2D::5431023514151256335::1671666550::1672093692::1::::<><>::
+ui_Button_2 highlight.svg::CompressedTexture2D::2999144835510740222::1671666550::1672093692::1::::<><>::
+ui_Button_2.svg::CompressedTexture2D::6243897684856852698::1671666550::1672093692::1::::<><>::
+ui_Button_3 highlight.svg::CompressedTexture2D::9008122185018983662::1671666550::1672093692::1::::<><>::
+ui_Button_3.svg::CompressedTexture2D::596688327981641447::1671666550::1672093692::1::::<><>::
+ui_Button_4 highlight.svg::CompressedTexture2D::5061851052810352844::1671666550::1672093692::1::::<><>::
+ui_Button_4.svg::CompressedTexture2D::4747521553108153125::1671666550::1672093692::1::::<><>::

@@ -1,0 +1,6 @@
+res://game.tscn
+res://UI/UI_game_theme.theme
+res://UI/main_menu.tscn
+res://UI/main_menu.gd
+res://UI/join_game_menu.tscn
+res://UI/join_game_menu.gd
