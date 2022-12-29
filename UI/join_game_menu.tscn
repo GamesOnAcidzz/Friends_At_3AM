@@ -1,10 +1,141 @@
-[gd_scene load_steps=2 format=3 uid="uid://do1cnchhmlf0k"]
+[gd_scene load_steps=3 format=3 uid="uid://cbqjqws3bbqmc"]
 
-[ext_resource type="Script" path="res://UI/join_game_menu.gd" id="1_4y3qj"]
+[ext_resource type="Script" path="res://UI/create_game_menu.gd" id="1_nupuw"]
+[ext_resource type="Theme" uid="uid://ccq35is2jcenx" path="res://UI/UI_game_theme.theme" id="2_cw1to"]
 
-[node name="Control" type="Control"]
+[node name="Create Game Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("1_4y3qj")
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nupuw")
+metadata/_edit_horizontal_guides_ = []
+metadata/_edit_vertical_guides_ = [1138.0, 14.0]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.298039, 0.290196, 0.541176, 1)
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -93.0
+offset_right = 370.0
+offset_bottom = 93.0
+grow_vertical = 2
+
+[node name="Host Game" type="Button" parent="VSplitContainer"]
+layout_mode = 2
+theme = ExtResource("2_cw1to")
+text = "Host Game"
+
+[node name="Go Back" type="Button" parent="VSplitContainer"]
+layout_mode = 2
+theme = ExtResource("2_cw1to")
+text = "Go Back"
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -362.0
+offset_top = -236.0
+offset_right = -13.0
+offset_bottom = 63.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VSplitContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_cw1to")
+theme_override_font_sizes/font_size = 42
+text = "Players in the lobby"
+
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer2"]
+self_modulate = Color(1, 1, 1, 0.521569)
+layout_mode = 2
+theme = ExtResource("2_cw1to")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="VSplitContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label_player_1" type="Label" parent="VSplitContainer2/PanelContainer/VBoxContainer/HSplitContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Player 1
+"
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="VSplitContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label_player_2" type="Label" parent="VSplitContainer2/PanelContainer/VBoxContainer/HSplitContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Player 1
+"
+
+[node name="Kick_player_2" type="Button" parent="VSplitContainer2/PanelContainer/VBoxContainer/HSplitContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Kick"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VSplitContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label_player_3" type="Label" parent="VSplitContainer2/PanelContainer/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Player 1
+"
+
+[node name="Kick_player_3" type="Button" parent="VSplitContainer2/PanelContainer/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Kick"
+
+[node name="HSplitContainer4" type="HSplitContainer" parent="VSplitContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label_player_4" type="Label" parent="VSplitContainer2/PanelContainer/VBoxContainer/HSplitContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Player 1
+"
+
+[node name="Kick_player_4" type="Button" parent="VSplitContainer2/PanelContainer/VBoxContainer/HSplitContainer4"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Kick"
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="VSplitContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="pressed" from="VSplitContainer/Go Back" to="." method="_on_go_back_pressed"]

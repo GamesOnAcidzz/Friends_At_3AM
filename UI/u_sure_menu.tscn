@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnb8qp6ditbpw"]
+
+[ext_resource type="Theme" uid="uid://ccq35is2jcenx" path="res://UI/UI_game_theme.theme" id="1_hw8dt"]
+[ext_resource type="Script" path="res://UI/u_sure_menu.gd" id="1_qvub5"]
+
+[node name="U Sure Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qvub5")
+
+[node name="USure" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -143.0
+offset_right = 193.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0451442
+theme = ExtResource("1_hw8dt")
+theme_override_font_sizes/font_size = 64
+text = "Are you sure?"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 407.0
+offset_bottom = 346.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Yes" type="Button" parent="Control"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -43.5
+offset_right = -32.0
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0281869
+theme = ExtResource("1_hw8dt")
+text = "Yes
+"
+
+[node name="No" type="Button" parent="Control"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -43.5
+offset_right = 145.0
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0710077
+theme = ExtResource("1_hw8dt")
+text = "No
+"
+
+[connection signal="pressed" from="Control/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Control/No" to="." method="_on_no_pressed"]
