@@ -1,0 +1,357 @@
+[gd_scene load_steps=6 format=3 uid="uid://deev0ibg2y3vg"]
+
+[ext_resource type="Script" path="res://UI/create_game_menu.gd" id="1_iuu6u"]
+[ext_resource type="Theme" uid="uid://ccq35is2jcenx" path="res://UI/UI_game_theme.theme" id="2_n4oqn"]
+[ext_resource type="Theme" uid="uid://br0jhg4ktbf34" path="res://UI/UI_game_theme_medium.theme" id="2_wliss"]
+[ext_resource type="Theme" uid="uid://df3cwp6meocos" path="res://UI/UI_game_theme_small.theme" id="3_8sc4s"]
+[ext_resource type="Theme" uid="uid://spbnk2og4b0h" path="res://UI/UI_game_theme_medium_2.theme" id="4_m67iy"]
+
+[node name="Create Game Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iuu6u")
+metadata/_edit_horizontal_guides_ = []
+metadata/_edit_vertical_guides_ = [1138.0, 14.0]
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.298039, 0.290196, 0.541176, 1)
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 139.0
+grow_horizontal = 2
+theme = ExtResource("2_n4oqn")
+theme_override_font_sizes/font_size = 100
+text = "Lobby"
+
+[node name="VSplitContainer" type="VBoxContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -93.0
+offset_right = 211.0
+offset_bottom = 4.0
+grow_vertical = 2
+
+[node name="Host Game" type="Button" parent="VSplitContainer"]
+offset_right = 198.0
+offset_bottom = 44.0
+theme = ExtResource("2_wliss")
+text = "Host Game"
+
+[node name="Go Back" type="Button" parent="VSplitContainer"]
+offset_top = 48.0
+offset_right = 198.0
+offset_bottom = 92.0
+theme = ExtResource("2_wliss")
+text = "Go Back"
+
+[node name="Players Panel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -162.0
+offset_bottom = 162.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Players Panel"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -174.5
+offset_right = 174.5
+offset_bottom = 61.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wliss")
+text = "Players in the lobby"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Players Panel"]
+self_modulate = Color(1, 1, 1, 0.427451)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.5
+offset_top = -102.0
+offset_right = 117.5
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("2_n4oqn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Players Panel/Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.5
+offset_top = -74.5
+offset_right = 92.5
+offset_bottom = 74.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player 1 Panel" type="Control" parent="Players Panel/Panel/VBoxContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 185.0
+offset_bottom = 34.0
+size_flags_vertical = 3
+
+[node name="Player 1 Label" type="Label" parent="Players Panel/Panel/VBoxContainer/Player 1 Panel"]
+clip_contents = true
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -18.5
+offset_right = 124.0
+offset_bottom = 18.5
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Player 1 "
+clip_text = true
+
+[node name="Player 2 Panel" type="Control" parent="Players Panel/Panel/VBoxContainer"]
+visibility_layer = 0
+layout_mode = 3
+anchors_preset = 0
+offset_top = 38.0
+offset_right = 185.0
+offset_bottom = 72.0
+size_flags_vertical = 3
+
+[node name="Player 2 Label" type="Label" parent="Players Panel/Panel/VBoxContainer/Player 2 Panel"]
+clip_contents = true
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -18.0
+offset_right = 124.0
+offset_bottom = 19.0
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Player 2"
+clip_text = true
+
+[node name="Player 2 Kick Button" type="Button" parent="Players Panel/Panel/VBoxContainer/Player 2 Panel"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -16.5
+offset_right = 1.0
+offset_bottom = 17.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Kick"
+
+[node name="Player 3 Panel" type="Control" parent="Players Panel/Panel/VBoxContainer"]
+visibility_layer = 0
+layout_mode = 3
+anchors_preset = 0
+offset_top = 76.0
+offset_right = 185.0
+offset_bottom = 110.0
+size_flags_vertical = 3
+
+[node name="Player 3 Label" type="Label" parent="Players Panel/Panel/VBoxContainer/Player 3 Panel"]
+clip_contents = true
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -18.5
+offset_right = 124.0
+offset_bottom = 18.5
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Player 3"
+clip_text = true
+
+[node name="Player 3 Kick Button" type="Button" parent="Players Panel/Panel/VBoxContainer/Player 3 Panel"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -16.5
+offset_right = 1.0
+offset_bottom = 17.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Kick"
+
+[node name="Player 4 Panel" type="Control" parent="Players Panel/Panel/VBoxContainer"]
+visibility_layer = 0
+layout_mode = 3
+anchors_preset = 0
+offset_top = 114.0
+offset_right = 185.0
+offset_bottom = 149.0
+size_flags_vertical = 3
+
+[node name="Player 4 Label" type="Label" parent="Players Panel/Panel/VBoxContainer/Player 4 Panel"]
+clip_contents = true
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -18.5
+offset_right = 124.0
+offset_bottom = 18.5
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Player 4
+"
+clip_text = true
+
+[node name="Player 4 Kick Button" type="Button" parent="Players Panel/Panel/VBoxContainer/Player 4 Panel"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -16.5
+offset_right = 1.0
+offset_bottom = 17.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Kick"
+
+[node name="Start Game" type="Button" parent="Players Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.5
+offset_top = 94.0
+offset_right = 93.5
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0158968
+theme = ExtResource("2_wliss")
+text = "Start Game"
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0.886275)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -249.5
+offset_top = -366.0
+offset_right = 249.5
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Control"]
+self_modulate = Color(0.345098, 0.294118, 0.603922, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -242.0
+offset_right = 242.0
+offset_bottom = 302.0
+grow_horizontal = 2
+theme = ExtResource("4_m67iy")
+
+[node name="Game Chat" type="RichTextLabel" parent="Control/Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -136.0
+offset_right = 218.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="Control"]
+self_modulate = Color(0.345098, 0.294118, 0.603922, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -242.5
+offset_top = -6.0
+offset_right = 242.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_m67iy")
+
+[node name="TextEdit" type="TextEdit" parent="Control/Panel2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.5
+offset_top = -14.5
+offset_right = 136.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_8sc4s")
+placeholder_text = "Type message"
+caret_multiple = false
+
+[node name="Button" type="Button" parent="Control/Panel2"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -19.5
+offset_right = -29.5
+offset_bottom = 20.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("3_8sc4s")
+text = "Send"
+
+[connection signal="pressed" from="VSplitContainer/Host Game" to="." method="_on_host_game_pressed"]
+[connection signal="pressed" from="VSplitContainer/Go Back" to="." method="_on_go_back_pressed"]

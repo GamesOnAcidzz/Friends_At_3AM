@@ -1,6 +1,7 @@
 extends Control
 class_name Main_Menu
-const create_game_menu =preload("res://UI/join_game_menu.tscn")
+const create_game_menu =preload("res://UI/create_game_menu.tscn")
+const join_game_menu =preload("res://UI/join_game_menu.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -17,8 +18,8 @@ func _on_create_game_pressed():
 
 
 func _on_join_game_pressed():
-	
-	pass # Replace with function body.
+	get_parent().add_child(join_game_menu.instantiate())
+	self.queue_free()
 
 
 func _on_quit_pressed():
