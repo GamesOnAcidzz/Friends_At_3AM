@@ -40,12 +40,12 @@ func _on_join_game_pressed():
 	
 	var result = multiplayer_peer.create_client("localhost",5555)
 	print (result)
+	
 	multiplayer_peer.peer_connected.connect(self._on_peer_connected)
 	multiplayer_peer.peer_disconnected.connect(self._on_peer_disconnected)
 	
-
 	multiplayer.set_multiplayer_peer(multiplayer_peer)
-	
+	create_game_menu.multiplayer.set_multiplayer_peer(multiplayer_peer)
 	pass # Replace with function body.
 	
 func _on_peer_connected(id:int):

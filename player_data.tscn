@@ -5,6 +5,7 @@ resource_name = "player_data"
 script/source = "extends Node
 
 var player_name:String = \"Player\"
+var multiplayer_peer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

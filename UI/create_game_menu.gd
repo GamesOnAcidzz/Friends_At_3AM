@@ -50,7 +50,6 @@ func _on_u_sure_result(result:bool):
 func _on_host_game_pressed():
 	
 	var result = multiplayer_peer.create_server(5555,4,0,0,0)
-	print (result)
 	
 	multiplayer.set_multiplayer_peer(multiplayer_peer)
 	
@@ -58,11 +57,11 @@ func _on_host_game_pressed():
 	multiplayer_peer.peer_disconnected.connect(self._on_peer_disconnected)
 	
 	$"VSplitContainer/Host Game".visibility_layer=0
-	$"Control/Panel/Game Chat".add_text("Server Created\n")
+	$"Game Chat/Panel/Game Chat RichLabelText".add_text("Server Created\n")
 	pass # Replace with function body.
 
 func _on_peer_connected(id:int):
-	$"Control/Panel/Game Chat".add_text(str("Player ",id," just joined\n"))
+	$"Game Chat/Panel/Game Chat RichLabelText".add_text(str("Player ",id," just joined\n"))
 	number_players_in_lobby=number_players_in_lobby+1
 	if (multiplayer.is_server()):
 		update_players_list()
@@ -73,7 +72,7 @@ func _on_peer_connected(id:int):
 	pass
 	
 func _on_peer_disconnected(id:int):
-	$"Control/Panel/Game Chat".add_text(str("Player ",id," just left\n"))
+	$"Game Chat/Panel/Game Chat RichLabelText".add_text(str("Player ",id," just left\n"))
 	number_players_in_lobby=number_players_in_lobby-1
 	if (multiplayer.is_server()):
 		update_players_list()
@@ -100,3 +99,14 @@ func update_players_list():
 	for i in range(number_players_in_lobby):
 		player_panels[i].visibility_layer=1
 	
+	
+func _on_send_chat_button_pressed():
+	var message = str("Player ",multiplayer.get_unique_id(),": ",$"Game Chat/Panel2/Send Chat TextEdit".text,"\n") 
+	#addText_to_game_chat_server_request(message)
+	rpc("addText_to_game_chat_server_to_all_peers",message)
+	$"Game Chat/Panel2/Send Chat TextEdit".text=""
+	$"Game Chat/Panel2/Send Chat TextEdit".placeholder_text="Type message"
+	pass # Replace with function body.
+
+@rpc (any_peer,call_local) func addText_to_game_chat_server_to_all_peers(message:String):
+	$"Game Chat/Panel/Game Chat RichLabelText".add_text(message)

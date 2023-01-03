@@ -3,11 +3,11 @@ res://UI/UI_game_theme.theme
 res://UI/UI_game_theme_medium.theme
 res://UI/UI_game_theme_small.theme
 res://UI/UI_game_theme_medium_2.theme
-res://UI/create_game_menu.gd
-res://UI/main_menu.gd
-res://UI/join_game_menu.tscn
 res://game.tscn
 res://UI/main_menu.tscn
 res://UI/u_sure_menu.tscn
-res://UI/join_game_menu.gd
+res://UI/join_game_menu.tscn
 res://player_data.tscn
+res://UI/Create_Game_Game Chat.gd
+res://UI/create_game_menu.gd
+res://UI/join_game_menu.gd
