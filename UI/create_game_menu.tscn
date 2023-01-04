@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://deev0ibg2y3vg"]
 
-[ext_resource type="Script" path="res://UI/create_game_menu.gd" id="1_gf6ud"]
+[ext_resource type="Script" path="res://UI/create_game_menu.gd" id="1_o6d1k"]
 [ext_resource type="Theme" uid="uid://ccq35is2jcenx" path="res://UI/UI_game_theme.theme" id="2_n4oqn"]
 [ext_resource type="Theme" uid="uid://br0jhg4ktbf34" path="res://UI/UI_game_theme_medium.theme" id="2_wliss"]
 [ext_resource type="Theme" uid="uid://df3cwp6meocos" path="res://UI/UI_game_theme_small.theme" id="3_8sc4s"]
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_gf6ud")
+script = ExtResource("1_o6d1k")
 metadata/_edit_horizontal_guides_ = []
 metadata/_edit_vertical_guides_ = [1138.0, 14.0]
 
@@ -354,7 +354,11 @@ grow_vertical = 2
 theme = ExtResource("3_8sc4s")
 text = "Send"
 
+[node name="Time_connection_timeout" type="Timer" parent="."]
+autostart = true
+
 [connection signal="pressed" from="VSplitContainer/Host Game" to="." method="_on_host_game_pressed"]
 [connection signal="pressed" from="VSplitContainer/Go Back" to="." method="_on_go_back_pressed"]
 [connection signal="pressed" from="Game Chat/Panel2/Send Chat Button" to="." method="_on_send_chat_button_pressed"]
 [connection signal="pressed" from="Game Chat/Panel2/Send Chat Button" to="Game Chat" method="_on_send_chat_button_pressed"]
+[connection signal="timeout" from="Time_connection_timeout" to="." method="_on_time_connection_timeout_timeout"]

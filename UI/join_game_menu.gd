@@ -39,19 +39,22 @@ func _on_join_game_pressed():
 	
 	
 	var result = multiplayer_peer.create_client("localhost",5555)
-	print (result)
+	print (multiplayer_peer.get_unique_id())
 	
 	multiplayer_peer.peer_connected.connect(self._on_peer_connected)
 	multiplayer_peer.peer_disconnected.connect(self._on_peer_disconnected)
 	
 	multiplayer.set_multiplayer_peer(multiplayer_peer)
-	create_game_menu.multiplayer.set_multiplayer_peer(multiplayer_peer)
+	
+	#create_game_menu.multiplayer.set_multiplayer_peer(multiplayer_peer)
 	pass # Replace with function body.
 	
 func _on_peer_connected(id:int):
 	self.queue_free()
 	get_parent().add_child(create_game_menu)
+	create_game_menu.multiplayer_peer=multiplayer_peer
 	create_game_menu.load_lobby()
+	
 	pass
 	
 func _on_peer_disconnected(id:int):

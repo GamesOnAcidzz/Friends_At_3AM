@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5ccyu81eswvp"]
+
+[ext_resource type="Script" path="res://UI/connection_lost_menu.gd" id="1_gps2b"]
+[ext_resource type="Theme" uid="uid://br0jhg4ktbf34" path="res://UI/UI_game_theme_medium.theme" id="2_o28om"]
+[ext_resource type="Theme" uid="uid://ccq35is2jcenx" path="res://UI/UI_game_theme.theme" id="3_bmhb5"]
+
+[node name="Connection Lost Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gps2b")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(0.345098, 0.294118, 0.603922, 0.568627)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -174.0
+offset_right = 253.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_o28om")
+
+[node name="USure" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -143.0
+offset_right = 193.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.00511327
+theme = ExtResource("3_bmhb5")
+theme_override_font_sizes/font_size = 64
+text = "Connection Lost"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 407.0
+offset_bottom = 346.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Go Back" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -43.5
+offset_right = 134.0
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0281869
+theme = ExtResource("3_bmhb5")
+text = "Go back
+"
+
+[connection signal="pressed" from="Control/Go Back" to="." method="_on_go_back_pressed"]

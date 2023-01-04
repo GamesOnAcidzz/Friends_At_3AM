@@ -3,15 +3,18 @@ class_name Create_Game_Menu
 
 const u_sure_menu_resource = preload("res://UI/u_sure_menu.tscn")
 @onready var main_menu_resource = load("res://UI/main_menu.tscn")
+const connection_lost_menu_resource = preload ("res://UI/connection_lost_menu.tscn")
+var connection_lost_menu:Connection_lost_menu
 var u_sure_menu:U_Sure_Menu
 var game_chat = get_node("Control/Panel/Game Chat")
 var main_menu:Main_Menu
 var number_players_in_lobby = 1
+signal all_peers_disconnected
 var multiplayer_peer = ENetMultiplayerPeer.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_chat as RichTextLabel
-	
+	main_menu=main_menu_resource.instantiate()
 	pass # Replace with function body.
 
 
@@ -27,11 +30,19 @@ func _on_go_back_pressed():
 	#u_sure_menu.on_result_pressed.connect(_on_u_sure_result)
 	await u_sure_menu.on_result_pressed
 	if u_sure_menu.result:
+		rpc ("server_disconnect_all_peers")
+		if (multiplayer.is_server()):
+			rpc ("server_disconnect_all_peers")
+			all_peers_disconnected.emit()
+			print("Server disconnect all peers")
 		main_menu=main_menu_resource.instantiate()
 		multiplayer.set_multiplayer_peer(null)
 		u_sure_menu.queue_free()
-		get_parent().add_child(main_menu)
 		self.queue_free()
+		
+		#await all_peers_disconnected
+		get_parent().add_child(main_menu)
+		
 	else: 
 		u_sure_menu.queue_free()
 
@@ -79,7 +90,10 @@ func _on_peer_disconnected(id:int):
 		
 	else:
 		load_lobby()
-	
+	print (id)
+	if (id==0):
+		print (multiplayer.get_remote_sender_id())
+		rpc ("server_disconnect_all_peers")
 	pass
 
 func load_lobby():
@@ -110,3 +124,29 @@ func _on_send_chat_button_pressed():
 
 @rpc (any_peer,call_local) func addText_to_game_chat_server_to_all_peers(message:String):
 	$"Game Chat/Panel/Game Chat RichLabelText".add_text(message)
+@rpc func server_disconnect_all_peers():
+	rpc ("disconnect_all_peers")
+	
+	
+@rpc (any_peer,call_local) func disconnect_all_peers():
+	#if (!multiplayer.is_server()):
+		connection_lost_menu= connection_lost_menu_resource.instantiate()
+		#connection_lost_menu.instantiate(connection_lost_menu_resource)
+		add_child(connection_lost_menu)
+		multiplayer.set_multiplayer_peer(null)
+		await connection_lost_menu.go_back
+		self.queue_free()
+		get_parent().add_child(main_menu)
+
+
+func _on_time_connection_timeout_timeout():
+	if(multiplayer_peer.get_connection_status()==0):
+		$Time_connection_timeout.stop()
+		connection_lost_menu= connection_lost_menu_resource.instantiate()
+		#connection_lost_menu.instantiate(connection_lost_menu_resource)
+		add_child(connection_lost_menu)
+		multiplayer.set_multiplayer_peer(null)
+		await connection_lost_menu.go_back
+		self.queue_free()
+		get_parent().add_child(main_menu)
+	pass # Replace with function body.
