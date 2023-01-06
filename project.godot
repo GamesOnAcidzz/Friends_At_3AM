@@ -24,6 +24,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://UI/main_menu.gd"
 }, {
+"base": "Object",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://Global/Player.gd"
+}, {
 "base": "Control",
 "class": &"U_Sure_Menu",
 "language": &"GDScript",
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "Connection_lost_menu": "",
 "Create_Game_Menu": "",
 "Main_Menu": "",
+"Player": "",
 "U_Sure_Menu": ""
 }
 

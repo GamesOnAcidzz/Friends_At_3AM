@@ -9,8 +9,12 @@ var u_sure_menu:U_Sure_Menu
 var game_chat = get_node("Control/Panel/Game Chat")
 var main_menu:Main_Menu
 var number_players_in_lobby = 1
-signal all_peers_disconnected
+var players:Array[Player]
 var multiplayer_peer = ENetMultiplayerPeer.new()
+
+signal all_peers_disconnected
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_chat as RichTextLabel
@@ -66,7 +70,8 @@ func _on_host_game_pressed():
 	
 	multiplayer_peer.peer_connected.connect(self._on_peer_connected)
 	multiplayer_peer.peer_disconnected.connect(self._on_peer_disconnected)
-	
+	print(get_node("/root/PlayerData").player_name)
+	#players_names[0]= get_parent()
 	$"VSplitContainer/Host Game".visibility_layer=0
 	$"Game Chat/Panel/Game Chat RichLabelText".add_text("Server Created\n")
 	pass # Replace with function body.
@@ -90,15 +95,11 @@ func _on_peer_disconnected(id:int):
 		
 	else:
 		load_lobby()
-	print (id)
-	if (id==0):
-		print (multiplayer.get_remote_sender_id())
-		rpc ("server_disconnect_all_peers")
-	pass
 
 func load_lobby():
 	if (!multiplayer.is_server()):
 		$"VSplitContainer/Host Game".visibility_layer=0
+		$Time_connection_timeout.start()
 		
 	pass
 
@@ -107,6 +108,11 @@ func update_players_list():
 	$"Players Panel/Panel/VBoxContainer/Player 2 Panel",
 	$"Players Panel/Panel/VBoxContainer/Player 3 Panel",
 	$"Players Panel/Panel/VBoxContainer/Player 4 Panel"] as Array[Control]
+	var player_panels_label = [$"Players Panel/Panel/VBoxContainer/Player 1 Panel/Player 1 Label",
+	$"Players Panel/Panel/VBoxContainer/Player 2 Panel/Player 2 Label",
+	$"Players Panel/Panel/VBoxContainer/Player 3 Panel/Player 3 Label",
+	$"Players Panel/Panel/VBoxContainer/Player 4 Panel/Player 4 Label"]
+	
 	for panel in player_panels:
 		panel.visibility_layer=0
 		
