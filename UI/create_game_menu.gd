@@ -1,8 +1,8 @@
 extends Control
-class_name Create_Game_Menu
 
 const u_sure_menu_resource = preload("res://UI/u_sure_menu.tscn")
 @onready var main_menu_resource = load("res://UI/main_menu.tscn")
+var multiplayer_session:Multiplayer_Session = Multiplayer_Session.new()
 const connection_lost_menu_resource = preload ("res://UI/connection_lost_menu.tscn")
 var connection_lost_menu:Connection_lost_menu
 var u_sure_menu:U_Sure_Menu
@@ -14,13 +14,12 @@ var multiplayer_peer = ENetMultiplayerPeer.new()
 
 signal all_peers_disconnected
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_chat as RichTextLabel
+	multiplayer_session = get_node("/root/GAME/Multiplayer_Session")
 	main_menu=main_menu_resource.instantiate()
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -40,7 +39,7 @@ func _on_go_back_pressed():
 			all_peers_disconnected.emit()
 			print("Server disconnect all peers")
 		main_menu=main_menu_resource.instantiate()
-		multiplayer.set_multiplayer_peer(null)
+		multiplayer_session.disconnect_peer()
 		u_sure_menu.queue_free()
 		self.queue_free()
 		
@@ -64,20 +63,16 @@ func _on_u_sure_result(result:bool):
 
 func _on_host_game_pressed():
 	
-	var result = multiplayer_peer.create_server(5555,4,0,0,0)
-	
-	multiplayer.set_multiplayer_peer(multiplayer_peer)
-	
-	multiplayer_peer.peer_connected.connect(self._on_peer_connected)
-	multiplayer_peer.peer_disconnected.connect(self._on_peer_disconnected)
-	print(get_node("/root/PlayerData").player_name)
-	#players_names[0]= get_parent()
+	multiplayer_session.host_game()
+	multiplayer.set_multiplayer_peer(multiplayer_session.multiplayer_peer)
+	multiplayer.peer_connected.connect(self._on_peer_connected)
+	multiplayer.peer_disconnected.connect(self._on_peer_disconnected)
 	$"VSplitContainer/Host Game".visibility_layer=0
 	$"Game Chat/Panel/Game Chat RichLabelText".add_text("Server Created\n")
 	pass # Replace with function body.
 
 func _on_peer_connected(id:int):
-	$"Game Chat/Panel/Game Chat RichLabelText".add_text(str("Player ",id," just joined\n"))
+	$"Game Chat/Panel/Game Chat RichLabelText".add_text(str(multiplayer_session.iplayer.name," ",id," just joined\n"))
 	number_players_in_lobby=number_players_in_lobby+1
 	if (multiplayer.is_server()):
 		update_players_list()
@@ -121,7 +116,7 @@ func update_players_list():
 	
 	
 func _on_send_chat_button_pressed():
-	var message = str("Player ",multiplayer.get_unique_id(),": ",$"Game Chat/Panel2/Send Chat TextEdit".text,"\n") 
+	var message = str(multiplayer_session.iplayer.name," ",multiplayer.get_unique_id(),": ",$"Game Chat/Panel2/Send Chat TextEdit".text,"\n") 
 	#addText_to_game_chat_server_request(message)
 	rpc("addText_to_game_chat_server_to_all_peers",message)
 	$"Game Chat/Panel2/Send Chat TextEdit".text=""
@@ -139,19 +134,19 @@ func _on_send_chat_button_pressed():
 		connection_lost_menu= connection_lost_menu_resource.instantiate()
 		#connection_lost_menu.instantiate(connection_lost_menu_resource)
 		add_child(connection_lost_menu)
-		multiplayer.set_multiplayer_peer(null)
+		multiplayer_session.disconnect_peer()
 		await connection_lost_menu.go_back
 		self.queue_free()
 		get_parent().add_child(main_menu)
 
 
 func _on_time_connection_timeout_timeout():
-	if(multiplayer_peer.get_connection_status()==0):
+	if(multiplayer_session.multiplayer_peer.get_connection_status()==0):
 		$Time_connection_timeout.stop()
 		connection_lost_menu= connection_lost_menu_resource.instantiate()
 		#connection_lost_menu.instantiate(connection_lost_menu_resource)
 		add_child(connection_lost_menu)
-		multiplayer.set_multiplayer_peer(null)
+		multiplayer_session.disconnect_peer()
 		await connection_lost_menu.go_back
 		self.queue_free()
 		get_parent().add_child(main_menu)

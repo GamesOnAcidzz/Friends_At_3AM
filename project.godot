@@ -15,14 +15,14 @@ _global_script_classes=[{
 "path": "res://UI/connection_lost_menu.gd"
 }, {
 "base": "Control",
-"class": &"Create_Game_Menu",
-"language": &"GDScript",
-"path": "res://UI/create_game_menu.gd"
-}, {
-"base": "Control",
 "class": &"Main_Menu",
 "language": &"GDScript",
 "path": "res://UI/main_menu.gd"
+}, {
+"base": "Node",
+"class": &"Multiplayer_Session",
+"language": &"GDScript",
+"path": "res://Multiplayer/multiplayer_session.gd"
 }, {
 "base": "Object",
 "class": &"Player",
@@ -36,8 +36,8 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "Connection_lost_menu": "",
-"Create_Game_Menu": "",
 "Main_Menu": "",
+"Multiplayer_Session": "",
 "Player": "",
 "U_Sure_Menu": ""
 }

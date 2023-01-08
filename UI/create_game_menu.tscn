@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://deev0ibg2y3vg"]
 
-[ext_resource type="Script" path="res://UI/create_game_menu.gd" id="1_8kc3a"]
+[ext_resource type="Script" path="res://UI/create_game_menu.gd" id="1_8omdm"]
 [ext_resource type="Theme" uid="uid://ccq35is2jcenx" path="res://UI/UI_game_theme.theme" id="2_n4oqn"]
 [ext_resource type="Theme" uid="uid://br0jhg4ktbf34" path="res://UI/UI_game_theme_medium.theme" id="2_wliss"]
 [ext_resource type="Theme" uid="uid://df3cwp6meocos" path="res://UI/UI_game_theme_small.theme" id="3_8sc4s"]
@@ -13,12 +13,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8kc3a")
+script = ExtResource("1_8omdm")
 metadata/_edit_horizontal_guides_ = []
 metadata/_edit_vertical_guides_ = [1138.0, 14.0]
 
 [node name="Background" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,7 +26,6 @@ grow_vertical = 2
 color = Color(0.298039, 0.290196, 0.541176, 1)
 
 [node name="Title" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -40,7 +38,6 @@ theme_override_font_sizes/font_size = 100
 text = "Lobby"
 
 [node name="VSplitContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -51,17 +48,20 @@ offset_bottom = 4.0
 grow_vertical = 2
 
 [node name="Host Game" type="Button" parent="VSplitContainer"]
-layout_mode = 2
+offset_right = 198.0
+offset_bottom = 44.0
 theme = ExtResource("2_wliss")
 text = "Host Game"
 
 [node name="Go Back" type="Button" parent="VSplitContainer"]
-layout_mode = 2
+offset_top = 48.0
+offset_right = 198.0
+offset_bottom = 92.0
 theme = ExtResource("2_wliss")
 text = "Go Back"
 
 [node name="Players Panel" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -74,7 +74,6 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Players Panel"]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -90,7 +89,6 @@ vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="Players Panel"]
 self_modulate = Color(1, 1, 1, 0.427451)
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -106,7 +104,6 @@ size_flags_vertical = 3
 theme = ExtResource("2_n4oqn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Players Panel/Panel"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -120,12 +117,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player 1 Panel" type="Control" parent="Players Panel/Panel/VBoxContainer"]
-layout_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 185.0
+offset_bottom = 34.0
 size_flags_vertical = 3
 
 [node name="Player 1 Label" type="Label" parent="Players Panel/Panel/VBoxContainer/Player 1 Panel"]
 clip_contents = true
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -140,12 +139,15 @@ clip_text = true
 
 [node name="Player 2 Panel" type="Control" parent="Players Panel/Panel/VBoxContainer"]
 visibility_layer = 0
-layout_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_top = 38.0
+offset_right = 185.0
+offset_bottom = 72.0
 size_flags_vertical = 3
 
 [node name="Player 2 Label" type="Label" parent="Players Panel/Panel/VBoxContainer/Player 2 Panel"]
 clip_contents = true
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -159,7 +161,6 @@ text = "Player 2"
 clip_text = true
 
 [node name="Player 2 Kick Button" type="Button" parent="Players Panel/Panel/VBoxContainer/Player 2 Panel"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -176,12 +177,15 @@ text = "Kick"
 
 [node name="Player 3 Panel" type="Control" parent="Players Panel/Panel/VBoxContainer"]
 visibility_layer = 0
-layout_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_top = 76.0
+offset_right = 185.0
+offset_bottom = 110.0
 size_flags_vertical = 3
 
 [node name="Player 3 Label" type="Label" parent="Players Panel/Panel/VBoxContainer/Player 3 Panel"]
 clip_contents = true
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -195,7 +199,6 @@ text = "Player 3"
 clip_text = true
 
 [node name="Player 3 Kick Button" type="Button" parent="Players Panel/Panel/VBoxContainer/Player 3 Panel"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -212,12 +215,15 @@ text = "Kick"
 
 [node name="Player 4 Panel" type="Control" parent="Players Panel/Panel/VBoxContainer"]
 visibility_layer = 0
-layout_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_top = 114.0
+offset_right = 185.0
+offset_bottom = 149.0
 size_flags_vertical = 3
 
 [node name="Player 4 Label" type="Label" parent="Players Panel/Panel/VBoxContainer/Player 4 Panel"]
 clip_contents = true
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -232,7 +238,6 @@ text = "Player 4
 clip_text = true
 
 [node name="Player 4 Kick Button" type="Button" parent="Players Panel/Panel/VBoxContainer/Player 4 Panel"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -248,7 +253,6 @@ theme_override_font_sizes/font_size = 24
 text = "Kick"
 
 [node name="Start Game" type="Button" parent="Players Panel"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -266,7 +270,7 @@ text = "Start Game"
 
 [node name="Game Chat" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0.886275)
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -281,7 +285,6 @@ grow_vertical = 0
 
 [node name="Panel" type="Panel" parent="Game Chat"]
 self_modulate = Color(0.345098, 0.294118, 0.603922, 1)
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -292,7 +295,6 @@ grow_horizontal = 2
 theme = ExtResource("4_m67iy")
 
 [node name="Game Chat RichLabelText" type="RichTextLabel" parent="Game Chat/Panel"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -307,7 +309,6 @@ grow_vertical = 2
 
 [node name="Panel2" type="Panel" parent="Game Chat"]
 self_modulate = Color(0.345098, 0.294118, 0.603922, 1)
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -322,7 +323,6 @@ grow_vertical = 0
 theme = ExtResource("4_m67iy")
 
 [node name="Send Chat TextEdit" type="TextEdit" parent="Game Chat/Panel2"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -339,7 +339,6 @@ placeholder_text = "Type message"
 caret_multiple = false
 
 [node name="Send Chat Button" type="Button" parent="Game Chat/Panel2"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5

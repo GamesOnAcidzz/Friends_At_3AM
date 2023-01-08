@@ -3,7 +3,7 @@
 [sub_resource type="GDScript" id="GDScript_1mqgd"]
 resource_name = "player_data"
 script/source = "extends Node
-
+class_name Player_Data
 var player:Player
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -15,7 +15,6 @@ script = ExtResource("1_gps2b")
 
 [node name="Panel" type="Panel" parent="."]
 self_modulate = Color(0.345098, 0.294118, 0.603922, 0.568627)
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -30,7 +29,6 @@ grow_vertical = 2
 theme = ExtResource("2_o28om")
 
 [node name="USure" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -49,12 +47,11 @@ text = "Connection Lost"
 horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 0
 offset_right = 407.0
 offset_bottom = 346.0
 
 [node name="Control" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -62,7 +59,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Go Back" type="Button" parent="Control"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

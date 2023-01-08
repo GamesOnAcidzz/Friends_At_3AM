@@ -15,7 +15,6 @@ grow_vertical = 2
 script = ExtResource("1_hj6df")
 
 [node name="Background" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,7 +23,6 @@ grow_vertical = 2
 color = Color(0.298039, 0.290196, 0.541176, 1)
 
 [node name="Title" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -38,7 +36,6 @@ text = "Friends at 3 AM"
 horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -50,18 +47,15 @@ grow_vertical = 2
 rotation = 0.0166868
 
 [node name="Options" type="Button" parent="VBoxContainer2"]
-layout_mode = 2
 theme = ExtResource("3_m5mdf")
 theme_override_fonts/font = ExtResource("2_cb3h3")
 text = "Options"
 
 [node name="Quit" type="Button" parent="VBoxContainer2"]
-layout_mode = 2
 theme = ExtResource("3_m5mdf")
 text = "Quit"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -73,12 +67,10 @@ grow_vertical = 2
 rotation = -0.0199072
 
 [node name="Join Game" type="Button" parent="VBoxContainer"]
-layout_mode = 2
 theme = ExtResource("3_m5mdf")
 text = "Join Game"
 
 [node name="Create Game" type="Button" parent="VBoxContainer"]
-layout_mode = 2
 theme = ExtResource("3_m5mdf")
 text = "Create Game"
 
