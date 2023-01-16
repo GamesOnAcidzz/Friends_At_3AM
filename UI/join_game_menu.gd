@@ -7,6 +7,7 @@ extends Control
 const u_sure_menu_resource = preload("res://UI/u_sure_menu.tscn")
 var u_sure_menu:U_Sure_Menu
 var main_menu:Main_Menu
+
 var multiplayer_session:Multiplayer_Session = Multiplayer_Session.new()
 #var multiplayer_peer = ENetMultiplayerPeer.new()
 # Called when the node enters the scene tree for the first time.

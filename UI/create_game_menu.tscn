@@ -1,10 +1,20 @@
 [gd_scene load_steps=6 format=3 uid="uid://deev0ibg2y3vg"]
 
-[ext_resource type="Script" path="res://UI/create_game_menu.gd" id="1_8omdm"]
 [ext_resource type="Theme" uid="uid://ccq35is2jcenx" path="res://UI/UI_game_theme.theme" id="2_n4oqn"]
 [ext_resource type="Theme" uid="uid://br0jhg4ktbf34" path="res://UI/UI_game_theme_medium.theme" id="2_wliss"]
 [ext_resource type="Theme" uid="uid://df3cwp6meocos" path="res://UI/UI_game_theme_small.theme" id="3_8sc4s"]
 [ext_resource type="Theme" uid="uid://spbnk2og4b0h" path="res://UI/UI_game_theme_medium_2.theme" id="4_m67iy"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_6blsv"]
+properties/0/path = NodePath("Players Panel/Panel/VBoxContainer/Player 2 Panel:visibility_layer")
+properties/0/spawn = true
+properties/0/sync = true
+properties/1/path = NodePath("Players Panel/Panel/VBoxContainer/Player 3 Panel:visibility_layer")
+properties/1/spawn = true
+properties/1/sync = true
+properties/2/path = NodePath("Players Panel/Panel/VBoxContainer/Player 4 Panel:visibility_layer")
+properties/2/spawn = true
+properties/2/sync = true
 
 [node name="Create Game Menu" type="Control"]
 layout_mode = 3
@@ -13,9 +23,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8omdm")
-metadata/_edit_horizontal_guides_ = []
-metadata/_edit_vertical_guides_ = [1138.0, 14.0]
+metadata/_edit_horizontal_guides_ = [638.0, 11.0]
+metadata/_edit_vertical_guides_ = [1141.0, 15.0]
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -48,15 +57,10 @@ offset_bottom = 4.0
 grow_vertical = 2
 
 [node name="Host Game" type="Button" parent="VSplitContainer"]
-offset_right = 198.0
-offset_bottom = 44.0
 theme = ExtResource("2_wliss")
 text = "Host Game"
 
 [node name="Go Back" type="Button" parent="VSplitContainer"]
-offset_top = 48.0
-offset_right = 198.0
-offset_bottom = 92.0
 theme = ExtResource("2_wliss")
 text = "Go Back"
 
@@ -117,10 +121,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player 1 Panel" type="Control" parent="Players Panel/Panel/VBoxContainer"]
+visibility_layer = 0
 layout_mode = 3
 anchors_preset = 0
-offset_right = 185.0
-offset_bottom = 34.0
 size_flags_vertical = 3
 
 [node name="Player 1 Label" type="Label" parent="Players Panel/Panel/VBoxContainer/Player 1 Panel"]
@@ -141,9 +144,6 @@ clip_text = true
 visibility_layer = 0
 layout_mode = 3
 anchors_preset = 0
-offset_top = 38.0
-offset_right = 185.0
-offset_bottom = 72.0
 size_flags_vertical = 3
 
 [node name="Player 2 Label" type="Label" parent="Players Panel/Panel/VBoxContainer/Player 2 Panel"]
@@ -179,9 +179,6 @@ text = "Kick"
 visibility_layer = 0
 layout_mode = 3
 anchors_preset = 0
-offset_top = 76.0
-offset_right = 185.0
-offset_bottom = 110.0
 size_flags_vertical = 3
 
 [node name="Player 3 Label" type="Label" parent="Players Panel/Panel/VBoxContainer/Player 3 Panel"]
@@ -217,9 +214,6 @@ text = "Kick"
 visibility_layer = 0
 layout_mode = 3
 anchors_preset = 0
-offset_top = 114.0
-offset_right = 185.0
-offset_bottom = 149.0
 size_flags_vertical = 3
 
 [node name="Player 4 Label" type="Label" parent="Players Panel/Panel/VBoxContainer/Player 4 Panel"]
@@ -356,8 +350,18 @@ text = "Send"
 [node name="Time_connection_timeout" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_6blsv")
+
+[node name="Timer_player_left" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="pressed" from="VSplitContainer/Host Game" to="." method="_on_host_game_pressed"]
 [connection signal="pressed" from="VSplitContainer/Go Back" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="Players Panel/Panel/VBoxContainer/Player 2 Panel/Player 2 Kick Button" to="." method="_on_player_2_kick_button_pressed"]
+[connection signal="pressed" from="Players Panel/Panel/VBoxContainer/Player 3 Panel/Player 3 Kick Button" to="." method="_on_player_3_kick_button_pressed"]
+[connection signal="pressed" from="Players Panel/Panel/VBoxContainer/Player 4 Panel/Player 4 Kick Button" to="." method="_on_player_4_kick_button_pressed"]
 [connection signal="pressed" from="Game Chat/Panel2/Send Chat Button" to="." method="_on_send_chat_button_pressed"]
 [connection signal="pressed" from="Game Chat/Panel2/Send Chat Button" to="Game Chat" method="_on_send_chat_button_pressed"]
 [connection signal="timeout" from="Time_connection_timeout" to="." method="_on_time_connection_timeout_timeout"]
+[connection signal="timeout" from="Timer_player_left" to="." method="_on_timer_player_left_timeout"]

@@ -47,11 +47,16 @@ grow_vertical = 2
 rotation = 0.0166868
 
 [node name="Options" type="Button" parent="VBoxContainer2"]
+offset_right = 212.0
+offset_bottom = 44.0
 theme = ExtResource("3_m5mdf")
 theme_override_fonts/font = ExtResource("2_cb3h3")
 text = "Options"
 
 [node name="Quit" type="Button" parent="VBoxContainer2"]
+offset_top = 48.0
+offset_right = 212.0
+offset_bottom = 92.0
 theme = ExtResource("3_m5mdf")
 text = "Quit"
 
@@ -67,10 +72,15 @@ grow_vertical = 2
 rotation = -0.0199072
 
 [node name="Join Game" type="Button" parent="VBoxContainer"]
+offset_right = 215.0
+offset_bottom = 44.0
 theme = ExtResource("3_m5mdf")
 text = "Join Game"
 
 [node name="Create Game" type="Button" parent="VBoxContainer"]
+offset_top = 48.0
+offset_right = 215.0
+offset_bottom = 92.0
 theme = ExtResource("3_m5mdf")
 text = "Create Game"
 

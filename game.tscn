@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx62p1on7m1e6"]
+[gd_scene load_steps=4 format=3 uid="uid://cx62p1on7m1e6"]
 
 [ext_resource type="PackedScene" uid="uid://bg5mybua70v85" path="res://UI/main_menu.tscn" id="1_6sgp4"]
 [ext_resource type="Script" path="res://Multiplayer/multiplayer_session.gd" id="2_kdp86"]
+[ext_resource type="Script" path="res://Player/player_data.gd" id="3_ephnv"]
 
 [node name="GAME" type="Node3D"]
 
@@ -17,3 +18,6 @@ grow_vertical = 2
 
 [node name="Multiplayer_Session" type="Node" parent="."]
 script = ExtResource("2_kdp86")
+
+[node name="Player_Data" type="Node" parent="."]
+script = ExtResource("3_ephnv")

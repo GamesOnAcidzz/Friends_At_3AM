@@ -29,6 +29,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Global/Player.gd"
 }, {
+"base": "Node",
+"class": &"Player_Data",
+"language": &"GDScript",
+"path": "res://Player/player_data.gd"
+}, {
+"base": "Node",
+"class": &"Player_Network_Data",
+"language": &"GDScript",
+"path": "res://Multiplayer/player_network_data.gd"
+}, {
 "base": "Control",
 "class": &"U_Sure_Menu",
 "language": &"GDScript",
@@ -39,6 +49,8 @@ _global_script_class_icons={
 "Main_Menu": "",
 "Multiplayer_Session": "",
 "Player": "",
+"Player_Data": "",
+"Player_Network_Data": "",
 "U_Sure_Menu": ""
 }
 
@@ -48,7 +60,3 @@ config/name="Friends_At_3AM"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
-
-[autoload]
-
-PlayerData="*res://player_data.tscn"
