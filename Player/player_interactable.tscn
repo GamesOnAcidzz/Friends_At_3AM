@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://gcvm5fh0d8mw"]
+
+[ext_resource type="Script" path="res://Player/player_interactable.gd" id="1_vqebi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i7h7w"]
+height = 0.562084
+radius = 0.79788
+
+[node name="Player_interactable" type="Node3D"]
+script = ExtResource("1_vqebi")
+collision_path = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263075, 0)
+shape = SubResource("CylinderShape3D_i7h7w")
