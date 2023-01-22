@@ -1,7 +1,8 @@
-res://Items/Models
-res://Player
 res://Player/Characters/Animations/
 res://Player/Characters/Animations
+res://Items
+res://Player
+res://Items/Models
 res://Maps
 res://Player/Characters/Vin/Materials
 res://UI

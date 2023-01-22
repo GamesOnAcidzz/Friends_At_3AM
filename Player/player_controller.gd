@@ -12,11 +12,16 @@ var input_dir:Vector2 = Vector2(0,0)
 var direction
 var is_running=false
 var can_run=true
+var max_intentory_size=2
 
+@onready var interact_area:Area3D = get_node("Interact_Area")
 @onready var pivot_camera = get_node("SpringArm3D")
 @onready var inventory = get_node("Inventory")
+@onready var item_holder = get_node("Player_character/Character/Skeleton3D/BoneAttachment3D/Item_holder")
 
 func _physics_process(delta):
+	for o in interact_area.get_overlapping_bodies():
+		print (o)
 	# Add the gravity.
 	if not is_on_floor():
 			velocity.y -= gravity * delta
@@ -52,3 +57,16 @@ func _input(event):
 		is_running=true
 	else:
 		is_running=false
+	if Input.is_action_just_pressed("Interact",true):
+		if (!interact_area.get_overlapping_bodies().is_empty()):
+			interact_area.get_overlapping_bodies()[0].get_parent().interact(self)
+
+func equip_item(item:Node3D):
+	item.visible=true
+	item_holder.add_child(item)
+func add_item_to_inventory(item:Node3D):
+	if (inventory.get_child_count()<max_intentory_size):
+		if (item_holder.get_child_count()==0):
+			equip_item(item)
+		else:
+			inventory.add_child(item)

@@ -2,8 +2,8 @@ extends Node3D
 class_name Player_interactable
 
 @export var interaction_text = ""
-@export_node_path(Area3D) var collision_path
-@onready var collisionArea:Area3D = get_node(collision_path)
+#@export_node_path(Area3D) var collision_path
+#@onready var collisionArea:Area3D = get_node(collision_path)
 
 signal onInteract
 # Called when the node enters the scene tree for the first time.
@@ -15,9 +15,9 @@ func _ready():
 func _process(delta):
 	pass
 
-func interact():
-	_onInteract()
+func interact(player:Player_controller):
+	_onInteract(player)
 	emit_signal("onInteract")
 	
-func _onInteract():
+func _onInteract(player:Player_controller):
 	pass

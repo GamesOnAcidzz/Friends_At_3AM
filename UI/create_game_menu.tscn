@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://df3cwp6meocos" path="res://UI/UI_game_theme_small.theme" id="3_8sc4s"]
 [ext_resource type="Theme" uid="uid://spbnk2og4b0h" path="res://UI/UI_game_theme_medium_2.theme" id="4_m67iy"]
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_41tgx"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ydmjr"]
 properties/0/path = NodePath("Players Panel/Panel/VBoxContainer/Player 2 Panel:visibility_layer")
 properties/0/spawn = true
 properties/0/sync = true
@@ -351,7 +351,7 @@ text = "Send"
 wait_time = 3.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_41tgx")
+replication_config = SubResource("SceneReplicationConfig_ydmjr")
 
 [node name="Timer_player_left" type="Timer" parent="."]
 wait_time = 5.0

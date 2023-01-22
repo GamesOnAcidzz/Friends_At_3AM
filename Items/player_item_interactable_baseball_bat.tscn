@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdh5q5msuetch"]
+[gd_scene load_steps=7 format=3 uid="uid://cci78a86a30cy"]
 
-[ext_resource type="Script" path="res://Player/player_item_interactable.gd" id="1_bnuny"]
-[ext_resource type="ArrayMesh" uid="uid://73svsxoe68m6" path="res://Items/Models/baseball_bat.res" id="2_n4d0y"]
+[ext_resource type="Script" path="res://Player/player_item_interactable.gd" id="1_mwv8j"]
+[ext_resource type="ArrayMesh" uid="uid://73svsxoe68m6" path="res://Items/Models/baseball_bat.res" id="2_dcbig"]
+[ext_resource type="PackedScene" uid="uid://0segw2kcuni7" path="res://Items/player_item_baseball.tscn" id="3_d2a4x"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i7h7w"]
 height = 4.99968
@@ -25,8 +26,7 @@ _data = {
 }
 
 [node name="Player_item_interactable" type="Node3D"]
-script = ExtResource("1_bnuny")
-collision_path = NodePath("Area3D")
+script = ExtResource("1_mwv8j")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4
@@ -42,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.570425, 0)
 [node name="Model" type="MeshInstance3D" parent="Model_handle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0147684, 0)
 layers = 4
-mesh = ExtResource("2_n4d0y")
+mesh = ExtResource("2_dcbig")
 skeleton = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -51,8 +51,10 @@ libraries = {
 }
 
 [node name="Player_item_holder" type="Node3D" parent="."]
+visible = false
 
-[node name="Player_item" type="Node3D" parent="Player_item_holder"]
+[node name="Player_item_baseball" parent="Player_item_holder" instance=ExtResource("3_d2a4x")]
+visible = false
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_layer = 4
