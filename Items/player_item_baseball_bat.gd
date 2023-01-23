@@ -9,3 +9,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _onPrimary_action():
+	player_onwer.animation_controller["parameters/Basic Player Control/BlendTree/Baseball_bat/playback"].travel("Swing_bat")
+	pass

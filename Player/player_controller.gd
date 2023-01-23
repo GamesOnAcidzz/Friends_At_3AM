@@ -14,6 +14,7 @@ var is_running=false
 var can_run=true
 var max_intentory_size=2
 
+@onready var animation_controller:AnimationTree = get_node("AnimationTree")
 @onready var interact_area:Area3D = get_node("Interact_Area")
 @onready var pivot_camera = get_node("SpringArm3D")
 @onready var inventory = get_node("Inventory")
@@ -60,11 +61,17 @@ func _input(event):
 	if Input.is_action_just_pressed("Interact",true):
 		if (!interact_area.get_overlapping_bodies().is_empty()):
 			interact_area.get_overlapping_bodies()[0].get_parent().interact(self)
+	if Input.is_action_just_pressed("Primary"):
+		if (item_holder.get_child_count()!=0):
+			item_holder.get_child(0).primary_action()
 
-func equip_item(item:Node3D):
+func equip_item(item:Player_item):
+	item.set_player_owner(self)
 	item.visible=true
 	item_holder.add_child(item)
-func add_item_to_inventory(item:Node3D):
+	animation_controller.set("parameters/Basic Player Control/BlendTree/Item_blend/blend_amount",1)
+	animation_controller.set("parameters/Basic Player Control/BlendTree/Transition/current",item_holder.get_child(0).item_name)
+func add_item_to_inventory(item:Player_item):
 	if (inventory.get_child_count()<max_intentory_size):
 		if (item_holder.get_child_count()==0):
 			equip_item(item)

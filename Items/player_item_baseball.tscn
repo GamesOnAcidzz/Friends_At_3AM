@@ -8,6 +8,7 @@ size = Vector3(1, 5.15492, 1)
 
 [node name="Player_item_baseball" type="Node3D"]
 script = ExtResource("1_3iw8p")
+item_name = "Baseball Bat"
 
 [node name="Model_holder" type="Node3D" parent="."]
 

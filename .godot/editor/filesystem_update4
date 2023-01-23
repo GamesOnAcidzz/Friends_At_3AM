@@ -1,4 +1,4 @@
-res://Items/player_item_scene.tscn
+res://Player/player.tscn
 res://UI/UI_game_theme.theme
 res://Player/Characters/Vin/Materials/Face.res
 res://Player/Characters/Vin/Materials/Hair.res
@@ -6,11 +6,11 @@ res://Player/Characters/Vin/Materials/Body.res
 res://Player/Characters/Vin/Materials/BootsNPants.res
 res://Player/Characters/Vin/Materials/Mouth_inside.res
 res://Items/Models/baseball_bat.res
-res://Player/player.tscn
-res://Player/player_controller.gd
-res://Items/player_item_interactable_baseball_bat.tscn
+res://Items/Player_item.gd
+res://Items/player_item_baseball_bat.gd
 res://game.tscn
+res://Player/player_controller.gd
 res://Maps/test_scene.tscn
+res://Items/player_item_interactable_baseball_bat.tscn
 res://Items/player_item_baseball.tscn
-res://Player/player_item_interactable.gd
-res://Player/player_interactable.gd
+res://Player/Characters/Animations/Swing_bat.res
