@@ -1,20 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca5a7rxew83r6"]
+[gd_scene load_steps=6 format=3 uid="uid://14xku7tt5gfl"]
 
-[ext_resource type="Script" path="res://Items/Player_item.gd" id="1_065rt"]
-[ext_resource type="ArrayMesh" uid="uid://73svsxoe68m6" path="res://Items/Models/baseball_bat.res" id="2_x43ft"]
-[ext_resource type="Animation" uid="uid://ulvf36bemsg6" path="res://Items/Animations/Bounce.res" id="3_u3asl"]
+[ext_resource type="Script" path="res://Items/Player_item.gd" id="1_7bxjw"]
+[ext_resource type="ArrayMesh" uid="uid://73svsxoe68m6" path="res://Items/Models/baseball_bat.res" id="2_22khm"]
+[ext_resource type="Animation" uid="uid://ulvf36bemsg6" path="res://Items/Animations/Bounce.res" id="3_0ki5m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s7oko"]
 size = Vector3(1, 5.24419, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yxb27"]
 _data = {
-"Bounce": ExtResource("3_u3asl")
+"Bounce": ExtResource("3_0ki5m")
 }
 
 [node name="Player_item" type="RigidBody3D"]
 collision_layer = 4
-script = ExtResource("1_065rt")
+script = ExtResource("1_7bxjw")
+item_name = "Baseball Bat"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09266, 0)
@@ -23,12 +24,14 @@ shape = SubResource("BoxShape3D_s7oko")
 [node name="Model_holder_pickup" type="Node3D" parent="."]
 
 [node name="Model" type="MeshInstance3D" parent="Model_holder_pickup"]
-mesh = ExtResource("2_x43ft")
+mesh = ExtResource("2_22khm")
 skeleton = NodePath("../..")
 
 [node name="Model_holder_player" type="Node3D" parent="."]
 
 [node name="Model" type="MeshInstance3D" parent="Model_holder_player"]
+visible = false
+mesh = ExtResource("2_22khm")
 skeleton = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

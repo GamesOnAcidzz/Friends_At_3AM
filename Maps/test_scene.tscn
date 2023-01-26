@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmr188wnl4xxm"]
+[gd_scene load_steps=5 format=3 uid="uid://cahigm22lgyr5"]
 
 [ext_resource type="PackedScene" uid="uid://bvwxmeod23doe" path="res://Player/player.tscn" id="1_uto02"]
-[ext_resource type="PackedScene" uid="uid://cci78a86a30cy" path="res://Items/player_item_interactable_baseball_bat.tscn" id="2_hvcog"]
+[ext_resource type="PackedScene" uid="uid://14xku7tt5gfl" path="res://Items/player_item_baseball_ball.tscn" id="2_vfpdy"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jrp7x"]
 
@@ -23,8 +23,5 @@ transform = Transform3D(32.1753, 0, 0, 0, 2.70309, 0, 0, 0, 57.4513, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_w3p8c")
 
-[node name="Player_item_interactable" parent="." instance=ExtResource("2_hvcog")]
-transform = Transform3D(0.999848, 0.017435, 0, -0.017435, 0.999848, 0, 0, 0, 1, -9.48947, 0, 12.1487)
-
-[node name="Player_item_interactable2" parent="." instance=ExtResource("2_hvcog")]
-transform = Transform3D(0.999848, 0.017435, 0, -0.017435, 0.999848, 0, 0, 0, 1, 2.63693, 0, 12.1487)
+[node name="Player_item" parent="." instance=ExtResource("2_vfpdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23931, 28.6833)

@@ -1,11 +1,11 @@
+AnimationPlayer
+RigidBody3D
 CollisionShape3D
 Area3D
 Node3D
 MeshInstance3D
 Player_item
 BoneAttachment3D
-RigidBody3D
-AnimationPlayer
 Player_interactable
 Node
 AnimationTree

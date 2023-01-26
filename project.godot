@@ -49,15 +49,15 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Player/player_interactable.gd"
 }, {
-"base": "Node3D",
+"base": "Player_interactable",
 "class": &"Player_item",
 "language": &"GDScript",
 "path": "res://Items/Player_item.gd"
 }, {
 "base": "Player_interactable",
-"class": &"Player_item_interactable",
+"class": &"Player_item_pickup",
 "language": &"GDScript",
-"path": "res://Player/player_item_interactable.gd"
+"path": "res://Items/Pickups/player_item_pickup.gd"
 }, {
 "base": "Control",
 "class": &"U_Sure_Menu",
@@ -74,7 +74,7 @@ _global_script_class_icons={
 "Player_controller": "",
 "Player_interactable": "",
 "Player_item": "",
-"Player_item_interactable": "",
+"Player_item_pickup": "",
 "U_Sure_Menu": ""
 }
 

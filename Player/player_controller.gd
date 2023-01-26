@@ -60,20 +60,36 @@ func _input(event):
 		is_running=false
 	if Input.is_action_just_pressed("Interact",true):
 		if (!interact_area.get_overlapping_bodies().is_empty()):
-			interact_area.get_overlapping_bodies()[0].get_parent().interact(self)
-	if Input.is_action_just_pressed("Primary"):
-		if (item_holder.get_child_count()!=0):
+			interact_area.get_overlapping_bodies()[0].interact(self)
+	if (item_holder.get_child_count()!=0):
+		if Input.is_action_just_pressed("Primary"):
 			item_holder.get_child(0).primary_action()
+		if Input.is_action_just_pressed("Secondary"):
+			item_holder.get_child(0).secondary_action()
+		if Input.is_action_just_pressed("Drop"):
+			drop_item()
+			pass
+			
 
 func equip_item(item:Player_item):
 	item.set_player_owner(self)
-	item.visible=true
+	item.get_parent().remove_child(item)
 	item_holder.add_child(item)
 	animation_controller.set("parameters/Basic Player Control/BlendTree/Item_blend/blend_amount",1)
-	animation_controller.set("parameters/Basic Player Control/BlendTree/Transition/current",item_holder.get_child(0).item_name)
-func add_item_to_inventory(item:Player_item):
+	#animation_controller.set("parameters/Basic Player Control/BlendTree/Transition/current",item_holder.get_child(0).item_name)
+func add_item_to_inventory(item:Player_item)->bool:
 	if (inventory.get_child_count()<max_intentory_size):
 		if (item_holder.get_child_count()==0):
 			equip_item(item)
+			return true
 		else:
 			inventory.add_child(item)
+			return true
+	return false
+func drop_item():
+	if (item_holder.get_child_count()!=0):
+		var player_item:Player_item = item_holder.get_child(0)
+		item_holder.remove_child(player_item)
+		var player_item_pickup:Player_item_pickup = player_item.player_item_pickup.instantiate()
+		player_item_pickup.player_item_holder.add_child(player_item)
+		get_parent_node_3d().add_child(player_item_pickup)

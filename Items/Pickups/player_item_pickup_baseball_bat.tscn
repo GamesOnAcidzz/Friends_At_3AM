@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdh5q5msuetch"]
+[gd_scene load_steps=7 format=3 uid="uid://26mkw3yh23jn"]
 
-[ext_resource type="Script" path="res://Player/player_item_interactable.gd" id="1_bnuny"]
-[ext_resource type="ArrayMesh" uid="uid://73svsxoe68m6" path="res://Items/Models/baseball_bat.res" id="2_n4d0y"]
+[ext_resource type="Script" path="res://Items/Pickups/player_item_pickup.gd" id="1_hyiwq"]
+[ext_resource type="ArrayMesh" uid="uid://73svsxoe68m6" path="res://Items/Models/baseball_bat.res" id="2_s1gec"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_i7h7w"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u3vae"]
 height = 4.99968
 radius = 0.467686
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i7h7w"]
+height = 1.2016
+radius = 1.21127
 
 [sub_resource type="Animation" id="Animation_tmsgv"]
 resource_name = "Bounce"
@@ -24,16 +28,20 @@ _data = {
 "Bounce": SubResource("Animation_tmsgv")
 }
 
-[node name="Player_item_interactable" type="Node3D"]
-script = ExtResource("1_bnuny")
-collision_path = NodePath("Area3D")
+[node name="Player_item_pickup" type="RigidBody3D"]
+collision_layer = 4
+script = ExtResource("1_hyiwq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.70419, 0)
+shape = SubResource("CylinderShape3D_u3vae")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60333, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.481018, 0)
 shape = SubResource("CylinderShape3D_i7h7w")
 
 [node name="Model_handle" type="Node3D" parent="."]
@@ -42,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.570425, 0)
 [node name="Model" type="MeshInstance3D" parent="Model_handle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0147684, 0)
 layers = 4
-mesh = ExtResource("2_n4d0y")
+mesh = ExtResource("2_s1gec")
 skeleton = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -51,13 +59,4 @@ libraries = {
 }
 
 [node name="Player_item_holder" type="Node3D" parent="."]
-
-[node name="Player_item" type="Node3D" parent="Player_item_holder"]
-
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 4
-collision_mask = 5
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.70419, 0)
-shape = SubResource("CylinderShape3D_i7h7w")
+visible = false
