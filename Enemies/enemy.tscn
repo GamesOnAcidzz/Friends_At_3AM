@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctri25ge8kxqq"]
+
+[ext_resource type="Script" path="res://Enemies/enemy_controller.gd" id="1_pmnip"]
+[ext_resource type="PackedScene" uid="uid://1bc6bypg6vg3" path="res://Enemies/AI State Machine System/state_machine_tree.tscn" id="2_3gx22"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_acqfq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0rwe4"]
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_pmnip")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935756, 0)
+shape = SubResource("CapsuleShape3D_acqfq")
+
+[node name="Enemy Model Holder" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy Model Holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989631, 0)
+mesh = SubResource("CapsuleMesh_0rwe4")
+skeleton = NodePath("../..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="State Machine Tree" parent="." instance=ExtResource("2_3gx22")]

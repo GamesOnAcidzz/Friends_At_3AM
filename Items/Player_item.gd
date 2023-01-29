@@ -20,12 +20,18 @@ func _onInteract(player:Player_controller):
 		pick_item(player)
 		
 func pick_item(player:Player_controller):
-	position=Vector3(0,0,0)
-	$".".freeze=true
-	model_pickup.visible=false
-	model_player.visible=true
-	player.add_item_to_inventory(self)
-	
+	if !is_player_owned:
+		position=Vector3(0,0,0)
+		$".".freeze=true
+		model_pickup.visible=false
+		model_player.visible=true
+		is_player_owned=true
+		player.add_item_to_inventory(self)
+func drop_item(player:Player_controller):
+	is_player_owned=false
+	$".".freeze=false
+	model_pickup.visible=true
+	model_player.visible=false
 func primary_action():
 	_onPrimary_action()
 	emit_signal("on_primary_action")

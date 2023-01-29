@@ -68,7 +68,10 @@ func _input(event):
 			item_holder.get_child(0).secondary_action()
 		if Input.is_action_just_pressed("Drop"):
 			drop_item()
-			pass
+		if Input.is_action_just_pressed("Next item"):
+			next_item()
+		if Input.is_action_just_pressed("Previous item"):
+			previous_item()
 			
 
 func equip_item(item:Player_item):
@@ -83,13 +86,39 @@ func add_item_to_inventory(item:Player_item)->bool:
 			equip_item(item)
 			return true
 		else:
+			item.set_player_owner(self)
+			item.get_parent().remove_child(item)
 			inventory.add_child(item)
 			return true
 	return false
 func drop_item():
 	if (item_holder.get_child_count()!=0):
 		var player_item:Player_item = item_holder.get_child(0)
+		player_item.drop_item(self)
+		player_item.position = position+(global_transform.basis.z*3)
 		item_holder.remove_child(player_item)
-		var player_item_pickup:Player_item_pickup = player_item.player_item_pickup.instantiate()
-		player_item_pickup.player_item_holder.add_child(player_item)
-		get_parent_node_3d().add_child(player_item_pickup)
+		get_parent_node_3d().add_child(player_item)
+		animation_controller.set("parameters/Basic Player Control/BlendTree/Item_blend/blend_amount",0)
+		if inventory.get_child_count()!=0:
+			var player_item_inventory = inventory.get_child(0)
+			inventory.remove_child(player_item_inventory)
+			item_holder.add_child(player_item_inventory)
+			animation_controller.set("parameters/Basic Player Control/BlendTree/Item_blend/blend_amount",1)
+func next_item():
+	if inventory.get_child_count()!=0:
+		var player_item = item_holder.get_child(0)
+		item_holder.remove_child(player_item)
+		inventory.add_child(player_item)
+		var player_item_inventory = inventory.get_child(0)
+		inventory.remove_child(player_item_inventory)
+		item_holder.add_child(player_item_inventory)
+	
+func previous_item():
+	if inventory.get_child_count()!=0:
+		var player_item = item_holder.get_child(0)
+		item_holder.remove_child(player_item)
+		var player_item_inventory = inventory.get_child(inventory.get_child_count()-1)
+		inventory.remove_child(player_item_inventory)
+		item_holder.add_child(player_item_inventory)
+		inventory.add_child(player_item)
+	
