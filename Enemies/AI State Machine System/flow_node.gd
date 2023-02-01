@@ -1,7 +1,7 @@
-extends Node
-class_name flow_node
+extends State_Node
+class_name Flow_Node
 
-var parent_node
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

@@ -21,8 +21,6 @@ var max_intentory_size=2
 @onready var item_holder = get_node("Player_character/Character/Skeleton3D/BoneAttachment3D/Item_holder")
 
 func _physics_process(delta):
-	for o in interact_area.get_overlapping_bodies():
-		print (o)
 	# Add the gravity.
 	if not is_on_floor():
 			velocity.y -= gravity * delta

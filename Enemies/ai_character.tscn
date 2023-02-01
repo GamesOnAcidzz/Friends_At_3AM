@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0rwe4"]
 
-[node name="Enemy" type="CharacterBody3D"]
+[node name="AI" type="CharacterBody3D"]
 script = ExtResource("1_pmnip")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

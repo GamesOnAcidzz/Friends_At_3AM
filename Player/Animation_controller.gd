@@ -8,7 +8,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(player_controller.input_dir)
 	if !player_controller.is_running:
 		state_machine.travel("Basic Player Control")
 		set("parameters/Basic Player Control/BlendTree/BlendSpace2D/blend_position",player_controller.input_dir)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cahigm22lgyr5"]
+[gd_scene load_steps=6 format=3 uid="uid://cahigm22lgyr5"]
 
 [ext_resource type="PackedScene" uid="uid://bvwxmeod23doe" path="res://Player/player.tscn" id="1_uto02"]
 [ext_resource type="PackedScene" uid="uid://14xku7tt5gfl" path="res://Items/player_item_baseball_ball.tscn" id="2_vfpdy"]
+[ext_resource type="PackedScene" uid="uid://ctri25ge8kxqq" path="res://Enemies/ai_character.tscn" id="3_ev3xx"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jrp7x"]
 
@@ -34,5 +35,8 @@ transform = Transform3D(1, 0, 0, 0, 0.937319, 0.348474, 0, -0.348474, 0.937319, 
 
 [node name="Model" parent="Player_item2/Model_holder_player" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.95191, 0.306377, 0, -0.306377, 0.95191, 0, 0, 0)
+
+[node name="AI" parent="." instance=ExtResource("3_ev3xx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6299, 0, 19.646)
 
 [editable path="Player_item2"]

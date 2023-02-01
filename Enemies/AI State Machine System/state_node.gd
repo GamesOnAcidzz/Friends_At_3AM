@@ -1,8 +1,10 @@
 extends Node
 class_name State_Node
-var state_manager:State_Manager
+
+@onready var state_manager:State_Manager = get_tree().get_first_node_in_group("State Manager")
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	pass # Replace with function body.
 func switch_state(previous_state:State_Node,next_state:State_Node):
 	previous_state.exit_state()

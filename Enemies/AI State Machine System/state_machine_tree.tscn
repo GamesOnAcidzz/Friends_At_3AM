@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://1bc6bypg6vg3"]
+[gd_scene load_steps=6 format=3 uid="uid://1bc6bypg6vg3"]
 
 [ext_resource type="Script" path="res://Enemies/AI State Machine System/state_machine_tree.gd" id="1_b2rjr"]
 [ext_resource type="Script" path="res://Enemies/AI State Machine System/Blackboard.gd" id="1_vg5ew"]
 [ext_resource type="Script" path="res://Enemies/AI State Machine System/state_manager.gd" id="2_6f30b"]
+[ext_resource type="Script" path="res://Enemies/AI State Machine System/Flow/flow_select_node.gd" id="3_8eups"]
+[ext_resource type="Script" path="res://Enemies/AI State Machine System/Conditions/condition_blackboard_node.gd" id="5_hdyct"]
 
 [node name="State Machine Tree" type="Node"]
 script = ExtResource("1_b2rjr")
@@ -11,7 +13,11 @@ script = ExtResource("1_b2rjr")
 script = ExtResource("1_vg5ew")
 keys = {}
 
-[node name="State Manager" type="Node" parent="."]
+[node name="State Manager" type="Node" parent="." groups=["State Manager"]]
 script = ExtResource("2_6f30b")
 
-[node name="Node" type="Node" parent="State Manager"]
+[node name="Flow_Node" type="Node" parent="State Manager"]
+script = ExtResource("3_8eups")
+
+[node name="Condition_Blackboard_Node" type="Node" parent="State Manager/Flow_Node"]
+script = ExtResource("5_hdyct")

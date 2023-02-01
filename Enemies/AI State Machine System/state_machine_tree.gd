@@ -1,11 +1,12 @@
 extends Node
 class_name State_Machine_Tree
 
-@onready var enemy_controller:Enemy_Controller=get_parent()
+@onready var ai_controller:AI_Controller=get_parent()
 @onready var state_manager:State_Manager=get_node("State Manager")
+@onready var blackboard:AI_State_Machine_Blackboard=get_node("Blackboard")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	state_manager.enemy_controller=enemy_controller
+	state_manager.ai_controller=ai_controller
 	pass # Replace with function body.
 
 

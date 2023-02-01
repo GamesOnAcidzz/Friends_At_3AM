@@ -1,4 +1,4 @@
-res://Enemies/state_machine_tree.tscn
+res://Enemies/AI State Machine System/state_machine_tree.tscn
 res://UI/UI_game_theme.theme
 res://Player/Characters/Vin/Materials/Face.res
 res://Player/Characters/Vin/Materials/Hair.res
@@ -6,11 +6,6 @@ res://Player/Characters/Vin/Materials/Body.res
 res://Player/Characters/Vin/Materials/BootsNPants.res
 res://Player/Characters/Vin/Materials/Mouth_inside.res
 res://Items/Models/baseball_bat.res
+res://Enemies/AI State Machine System/Conditions/condition_blackboard_node.gd
 res://Enemies/AI State Machine System/Blackboard.gd
-res://Enemies/AI State Machine System/state_machine_tree.tscn
-res://Enemies/AI State Machine System/flow_node.gd
-res://Enemies/AI State Machine System/state_node.gd
-res://Enemies/AI State Machine System/state_manager.gd
-res://Enemies/enemy.tscn
-res://Enemies/enemy_controller.gd
-res://Enemies/AI State Machine System/state_machine_tree.gd
+res://Enemies/AI State Machine System/condition_state_node.gd
