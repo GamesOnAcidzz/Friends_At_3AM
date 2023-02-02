@@ -1,7 +1,7 @@
 extends Flow_Node
 class_name Flow_Select_Node
 
-@onready var condition_state_node:Array[Condition_State_Node]=get_children()
+@onready var condition_state_nodes=get_children()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,7 +26,13 @@ func _on_exit_flow():
 	pass
 	
 func _on_enter_state():
-	pass
-	
+	var found=false
+	for node in condition_state_nodes:
+		if node.check_for_condition():
+			switch_state(self,node)
+			found=true
+	if !found:
+		print(str("One of the condition nodes needs to meet the condition on Flow Select Node ",name))
+
 func check_for_conditions_met():
 	pass 

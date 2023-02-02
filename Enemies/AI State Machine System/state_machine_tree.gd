@@ -8,7 +8,9 @@ class_name State_Machine_Tree
 func _ready():
 	state_manager.ai_controller=ai_controller
 	pass # Replace with function body.
-
+func get_blackboard()->AI_State_Machine_Blackboard:
+	var blackboard = get_node("Blackboard")
+	return blackboard
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -8,7 +8,6 @@ radius = 0.79788
 
 [node name="Player_interactable" type="Node3D"]
 script = ExtResource("1_vqebi")
-collision_path = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="."]
 

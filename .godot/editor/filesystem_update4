@@ -6,6 +6,14 @@ res://Player/Characters/Vin/Materials/Body.res
 res://Player/Characters/Vin/Materials/BootsNPants.res
 res://Player/Characters/Vin/Materials/Mouth_inside.res
 res://Items/Models/baseball_bat.res
-res://Enemies/AI State Machine System/Conditions/condition_blackboard_node.gd
 res://Enemies/AI State Machine System/Blackboard.gd
-res://Enemies/AI State Machine System/condition_state_node.gd
+res://game.tscn
+res://Maps/test_scene.tscn
+res://Player/player.tscn
+res://Items/player_item_baseball_ball.tscn
+res://Items/player_item_scene.tscn
+res://Enemies/ai_character.tscn
+res://Player/player_interactable.tscn
+res://Player/player_character.tscn
+res://Enemies/AI State Machine System/Conditions/condition_blackboard_node.gd
+res://Enemies/AI State Machine System/state_machine_tree.gd

@@ -11,7 +11,9 @@ script = ExtResource("1_b2rjr")
 
 [node name="Blackboard" type="Node" parent="."]
 script = ExtResource("1_vg5ew")
-keys = {}
+keys = {
+"Test": false
+}
 
 [node name="State Manager" type="Node" parent="." groups=["State Manager"]]
 script = ExtResource("2_6f30b")
@@ -21,3 +23,9 @@ script = ExtResource("3_8eups")
 
 [node name="Condition_Blackboard_Node" type="Node" parent="State Manager/Flow_Node"]
 script = ExtResource("5_hdyct")
+key_Name = "Test"
+is_set = true
+
+[node name="Condition_Blackboard_Node2" type="Node" parent="State Manager/Flow_Node"]
+script = ExtResource("5_hdyct")
+key_Name = "Test"

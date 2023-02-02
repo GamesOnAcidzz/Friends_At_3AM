@@ -1,56 +1,57 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1675281434
-game.tscn::PackedScene::6452848015018358671::1675042087::0::1::::<><>::uid://bg5mybua70v85<>res://Multiplayer/multiplayer_session.gd<>res://Player/player_data.gd
+::res://::1675367413
+game.tscn::PackedScene::6452848015018358671::1675367069::0::1::::<><>::uid://bg5mybua70v85<>res://Multiplayer/multiplayer_session.gd<>res://Player/player_data.gd
 icon.svg::CompressedTexture2D::4531029126776244030::1673049729::1673049729::1::::<><>::
 README.md::TextFile::-1::1673049729::0::1::::<><>::
-::res://Enemies/::1675042087
-ai_character.tscn::PackedScene::6142059355900989292::1675042087::0::1::::<><>::res://Enemies/enemy_controller.gd<>uid://1bc6bypg6vg3
+::res://Enemies/::1675367069
+ai_character.tscn::PackedScene::6142059355900989292::1675367069::0::1::::<><>::res://Enemies/enemy_controller.gd<>uid://1bc6bypg6vg3
 enemy_controller.gd::GDScript::-1::1675040443::0::1::::AI_Controller<>CharacterBody3D<>::
-::res://Enemies/AI State Machine System/::1675278109
-Blackboard.gd::GDScript::-1::1674949952::0::1::::AI_State_Machine_Blackboard<>Node<>::
-condition_state_node.gd::GDScript::-1::1675278103::0::1::::Condition_State_Node<>Node<>::
+::res://Enemies/AI State Machine System/::1675367069
+Blackboard.gd::GDScript::-1::1675366953::0::1::::AI_State_Machine_Blackboard<>Node<>::
+blackboard_key.gd::GDScript::-1::1675290461::0::1::::<>RefCounted<>::
+condition_state_node.gd::GDScript::-1::1675288167::0::1::::Condition_State_Node<>Node<>::
 flow_node.gd::GDScript::-1::1675274489::0::1::::Flow_Node<>Node<>::
-state_machine_tree.gd::GDScript::-1::1675277502::0::1::::State_Machine_Tree<>Node<>::
-state_machine_tree.tscn::PackedScene::1827151196228934900::1675278109::0::1::::<><>::res://Enemies/AI State Machine System/state_machine_tree.gd<>res://Enemies/AI State Machine System/Blackboard.gd<>res://Enemies/AI State Machine System/state_manager.gd<>res://Enemies/AI State Machine System/Flow/flow_select_node.gd<>res://Enemies/AI State Machine System/Conditions/condition_blackboard_node.gd
+state_machine_tree.gd::GDScript::-1::1675366919::0::1::::State_Machine_Tree<>Node<>::
+state_machine_tree.tscn::PackedScene::1827151196228934900::1675367069::0::1::::<><>::res://Enemies/AI State Machine System/state_machine_tree.gd<>res://Enemies/AI State Machine System/Blackboard.gd<>res://Enemies/AI State Machine System/state_manager.gd<>res://Enemies/AI State Machine System/Flow/flow_select_node.gd<>res://Enemies/AI State Machine System/Conditions/condition_blackboard_node.gd
 state_manager.gd::GDScript::-1::1675276474::0::1::::State_Manager<>Node<>::
-state_node.gd::GDScript::-1::1675274489::0::1::::State_Node<>Node<>::
-::res://Enemies/AI State Machine System/Conditions/::1675278109
-condition_blackboard_node.gd::GDScript::-1::1675278109::0::1::::Condition_Blackboard_Node<>Node<>::
-::res://Enemies/AI State Machine System/Flow/::1675278103
-flow_select_node.gd::GDScript::-1::1675278103::0::1::::Flow_Select_Node<>Node<>::
+state_node.gd::GDScript::-1::1675364306::0::1::::State_Node<>Node<>::
+::res://Enemies/AI State Machine System/Conditions/::1675367069
+condition_blackboard_node.gd::GDScript::-1::1675367069::0::1::::Condition_Blackboard_Boolean_Node<>Node<>::
+::res://Enemies/AI State Machine System/Flow/::1675364405
+flow_select_node.gd::GDScript::-1::1675364405::0::1::::Flow_Select_Node<>Node<>::
 ::res://Enemies/AI State Machine System/Tasks/::1675273647
 ::res://Enemies/Couch/::1674782916
 ::res://Global/::1673140762
 Player.gd::GDScript::-1::1673140762::0::1::::Player<>Object<>::
-::res://Items/::1675042087
+::res://Items/::1675367069
 Player_item.gd::GDScript::-1::1674778900::0::1::::Player_item<>Node3D<>::
-player_item_baseball_ball.tscn::PackedScene::1886192339019846989::1675042087::0::1::::<><>::res://Items/Player_item.gd<>uid://73svsxoe68m6<>uid://ulvf36bemsg6
+player_item_baseball_ball.tscn::PackedScene::1886192339019846989::1675367069::0::1::::<><>::res://Items/Player_item.gd<>uid://73svsxoe68m6<>uid://ulvf36bemsg6
 player_item_baseball_bat.gd::GDScript::-1::1674435887::0::1::::<>Node3D<>::
-player_item_scene.tscn::PackedScene::4834830774052877177::1675042087::0::1::::<><>::res://Items/Player_item.gd<>uid://73svsxoe68m6<>uid://ulvf36bemsg6
+player_item_scene.tscn::PackedScene::4834830774052877177::1675367069::0::1::::<><>::res://Items/Player_item.gd<>uid://73svsxoe68m6<>uid://ulvf36bemsg6
 ::res://Items/Animations/::1674695074
 Bounce.res::Animation::1427770532466939827::1674695074::0::1::::<><>::
-::res://Items/Models/::1675273828
+::res://Items/Models/::1675361487
 baseball_bat.glb::PackedScene::1501857253083134080::1674089486::1674090460::1::::<><>::
-baseball_bat.res::ArrayMesh::2304976962666011635::1675273828::0::1::::<><>::
+baseball_bat.res::ArrayMesh::2304976962666011635::1675361487::0::1::::<><>::
 ::res://Items/Pickups/::1674696759
 player_item_pickup.gd::GDScript::-1::1674523300::0::1::::Player_item_pickup<>Node3D<>::
 player_item_pickup.tscn::PackedScene::4999710220147090871::1674691919::0::1::::<><>::res://Items/Pickups/player_item_pickup.gd<>uid://73svsxoe68m6
 player_item_pickup_baseball_bat.tscn::PackedScene::1959842150324099191::1674696759::0::1::::<><>::res://Items/Pickups/player_item_pickup.gd<>uid://73svsxoe68m6
-::res://Maps/::1675042087
+::res://Maps/::1675367069
 level_geometry.glb::PackedScene::498087212530681923::1673915228::1673915238::1::::<><>::
-test_scene.tscn::PackedScene::4787789135601822912::1675042087::0::1::::<><>::uid://bvwxmeod23doe<>uid://14xku7tt5gfl<>uid://ctri25ge8kxqq
+test_scene.tscn::PackedScene::4787789135601822912::1675367069::0::1::::<><>::uid://bvwxmeod23doe<>uid://14xku7tt5gfl<>uid://ctri25ge8kxqq
 ::res://Materials/::1674090294
 ::res://Multiplayer/::1673698005
 multiplayer_session.gd::GDScript::-1::1673698005::0::1::::Multiplayer_Session<>Node<>::
 player_network_data.gd::GDScript::-1::1673543684::0::1::::Player_Network_Data<>Node<>::
-::res://Player/::1675042087
+::res://Player/::1675367070
 Animation_controller.gd::GDScript::-1::1675040687::0::1::::<>AnimationTree<>::
-player.tscn::PackedScene::3907220862935737820::1675042087::0::1::::<><>::uid://bf6dg03l3e8an<>res://Player/player_controller.gd<>uid://bylba0v7xuu8i<>uid://dkswfxtmsienv<>uid://sh6rpq7lufjt<>uid://dhq8v1pnj3cdc<>res://Player/Animation_controller.gd<>uid://bganl0ro0142j<>uid://b4w0bx5i01fpj<>uid://dj66xjlahkws<>uid://dl8fdujbc73ln<>uid://c8x0f4odulha2<>uid://c68cd1pgwk6q5<>uid://daxf1n6axmosx<>uid://cddey7kwtfqf1<>uid://cxjub1q87sw5q<>uid://djr1y5um2yj6j
-player_character.tscn::PackedScene::2801554834876524497::1674259725::0::1::::<><>::uid://bplfnv45epkxa
+player.tscn::PackedScene::3907220862935737820::1675367069::0::1::::<><>::uid://bf6dg03l3e8an<>res://Player/player_controller.gd<>uid://bylba0v7xuu8i<>uid://dkswfxtmsienv<>uid://sh6rpq7lufjt<>uid://dhq8v1pnj3cdc<>res://Player/Animation_controller.gd<>uid://bganl0ro0142j<>uid://b4w0bx5i01fpj<>uid://dj66xjlahkws<>uid://dl8fdujbc73ln<>uid://c8x0f4odulha2<>uid://c68cd1pgwk6q5<>uid://daxf1n6axmosx<>uid://cddey7kwtfqf1<>uid://cxjub1q87sw5q<>uid://djr1y5um2yj6j
+player_character.tscn::PackedScene::2801554834876524497::1675367070::0::1::::<><>::uid://bplfnv45epkxa
 player_controller.gd::GDScript::-1::1675040687::0::1::::Player_controller<>CharacterBody3D<>::
 player_data.gd::GDScript::-1::1673545186::0::1::::Player_Data<>Node<>::
 player_interactable.gd::GDScript::-1::1674328111::0::1::::Player_interactable<>Node3D<>::
-player_interactable.tscn::PackedScene::426559887487407610::1674088673::0::1::::<><>::res://Player/player_interactable.gd
+player_interactable.tscn::PackedScene::426559887487407610::1675367070::0::1::::<><>::res://Player/player_interactable.gd
 ::res://Player/Characters/::1673992063
 ::res://Player/Characters/Animations/::1674436013
 Hold_flashlight.res::Animation::6406981688363559188::1674432409::0::1::::<><>::
@@ -71,15 +72,15 @@ Walk_backwards.res::Animation::4093723150303428234::1673996912::0::1::::<><>::
 Vin.glb::PackedScene::3462289443001531374::1673832809::1673832810::1::::<><>::
 Vin_animations.glb::PackedScene::6993412385020024125::1673991922::1673996912::1::::<><>::
 Vin_animations_2.glb::PackedScene::4357909884938757821::1674431798::1674432409::1::::<><>::
-::res://Player/Characters/Vin/Materials/::1675273828
-Body.res::StandardMaterial3D::1547851824199469358::1675273828::0::1::::<><>::
-BootsNPants.res::StandardMaterial3D::6695475786477897732::1675273828::0::1::::<><>::
-Face.res::StandardMaterial3D::850846098321640776::1675273828::0::1::::<><>::
-Hair.res::StandardMaterial3D::7868244461805814496::1675273828::0::1::::<><>::
-Mouth_inside.res::StandardMaterial3D::8240129654416438242::1675273828::0::1::::<><>::
+::res://Player/Characters/Vin/Materials/::1675361487
+Body.res::StandardMaterial3D::1547851824199469358::1675361487::0::1::::<><>::
+BootsNPants.res::StandardMaterial3D::6695475786477897732::1675361487::0::1::::<><>::
+Face.res::StandardMaterial3D::850846098321640776::1675361487::0::1::::<><>::
+Hair.res::StandardMaterial3D::7868244461805814496::1675361487::0::1::::<><>::
+Mouth_inside.res::StandardMaterial3D::8240129654416438242::1675361487::0::1::::<><>::
 ::res://script_templates/::1674086601
 Interactable.gd::GDScript::-1::1674086601::0::1::::<>Node3D<>::
-::res://UI/::1675273828
+::res://UI/::1675361487
 connection_lost_menu.gd::GDScript::-1::1673049729::0::1::::Connection_lost_menu<>Control<>::
 connection_lost_menu.tscn::PackedScene::4496380144014391169::1674259725::0::1::::<><>::res://UI/connection_lost_menu.gd<>uid://br0jhg4ktbf34<>uid://ccq35is2jcenx
 create_game_menu.gd::GDScript::-1::1673790953::0::1::::<>Control<>::
@@ -89,7 +90,7 @@ join_game_menu.gd::GDScript::-1::1673570637::0::1::::<>Control<>::
 join_game_menu.tscn::PackedScene::2115930612370587499::1674259725::0::1::::<><>::uid://ccq35is2jcenx<>res://UI/join_game_menu.gd<>uid://br0jhg4ktbf34
 main_menu.gd::GDScript::-1::1673049729::0::1::::Main_Menu<>Control<>::
 main_menu.tscn::PackedScene::2870256624573212956::1674259725::0::1::::<><>::res://UI/main_menu.gd<>uid://ccq35is2jcenx<>uid://ciyqjsdocfv5b<>uid://br0jhg4ktbf34
-UI_game_theme.theme::Theme::4948003197573978977::1675273828::0::1::::<><>::uid://ciyqjsdocfv5b<>uid://b8uyhodioklv0<>uid://brqphpsj3f6hy<>uid://cjm3ftl271pgx<>uid://ibgduehklvdd<>uid://ccqeak5lwenld
+UI_game_theme.theme::Theme::4948003197573978977::1675361487::0::1::::<><>::uid://ciyqjsdocfv5b<>uid://b8uyhodioklv0<>uid://brqphpsj3f6hy<>uid://cjm3ftl271pgx<>uid://ibgduehklvdd<>uid://ccqeak5lwenld
 UI_game_theme_medium.theme::Theme::3631799783302598049::1673049729::0::1::::<><>::uid://ciyqjsdocfv5b<>uid://b8uyhodioklv0<>uid://brqphpsj3f6hy<>uid://cjm3ftl271pgx<>uid://ccqeak5lwenld
 UI_game_theme_medium_2.theme::Theme::1294449351697486117::1673049729::0::1::::<><>::uid://ciyqjsdocfv5b<>uid://b8uyhodioklv0<>uid://brqphpsj3f6hy<>uid://cjm3ftl271pgx<>uid://ibgduehklvdd<>uid://ccqeak5lwenld
 UI_game_theme_small.theme::Theme::7568170404124892006::1673049729::0::1::::<><>::uid://ciyqjsdocfv5b<>uid://b8uyhodioklv0<>uid://brqphpsj3f6hy<>uid://cjm3ftl271pgx<>uid://ccqeak5lwenld
