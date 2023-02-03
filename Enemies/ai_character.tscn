@@ -24,3 +24,5 @@ skeleton = NodePath("../..")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="State Machine Tree" parent="." instance=ExtResource("2_3gx22")]
+navigation_agent_node_path = NodePath("../NavigationAgent3D")
+character_body_3d_node_path = NodePath("..")

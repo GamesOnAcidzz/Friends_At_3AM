@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Enemies/AI State Machine System/state_machine_tree.gd" id="1_b2rjr"]
 [ext_resource type="Script" path="res://Enemies/AI State Machine System/Blackboard.gd" id="1_vg5ew"]
 [ext_resource type="Script" path="res://Enemies/AI State Machine System/state_manager.gd" id="2_6f30b"]
-[ext_resource type="Script" path="res://Enemies/AI State Machine System/Flow/flow_select_node.gd" id="3_8eups"]
+[ext_resource type="Script" path="res://Enemies/AI State Machine System/Flow/flow_random_node.gd" id="4_lx1ui"]
 [ext_resource type="Script" path="res://Enemies/AI State Machine System/Conditions/condition_blackboard_node.gd" id="5_hdyct"]
 
 [node name="State Machine Tree" type="Node"]
@@ -19,7 +19,7 @@ keys = {
 script = ExtResource("2_6f30b")
 
 [node name="Flow_Node" type="Node" parent="State Manager"]
-script = ExtResource("3_8eups")
+script = ExtResource("4_lx1ui")
 
 [node name="Condition_Blackboard_Node" type="Node" parent="State Manager/Flow_Node"]
 script = ExtResource("5_hdyct")
