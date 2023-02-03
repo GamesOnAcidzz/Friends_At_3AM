@@ -27,7 +27,6 @@ func _on_exit_flow():
 	
 func _on_enter_state():
 	switch_state(self,get_child(randi_range(0,get_child_count()-1)))
-	
 
 func check_for_conditions_met():
 	pass 

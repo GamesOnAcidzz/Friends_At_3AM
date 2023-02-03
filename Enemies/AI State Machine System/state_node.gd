@@ -34,6 +34,8 @@ func _on_process_state(delta):
 func _process(delta):
 	pass
 func restart_tree():
+	_on_restart_tree()
 	self.exit_state()
-	state_manager.initial_state.enter_state()
-	
+	state_manager.restart_state_manager()
+func _on_restart_tree():
+	pass

@@ -28,3 +28,7 @@ func start_state_manager():
 	active_state.enter_state()
 	state_manager_started=true
 	pass
+func restart_state_manager():
+	for state_node in get_children(true):
+		state_node._on_restart_tree()
+	initial_state.enter_state()

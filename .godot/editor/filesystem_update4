@@ -17,3 +17,4 @@ res://Enemies/ai_character.tscn
 res://Player/player_interactable.tscn
 res://Player/player_character.tscn
 res://Enemies/AI State Machine System/Flow/flow_random_node.gd
+res://Enemies/AI State Machine System/state_manager.gd
